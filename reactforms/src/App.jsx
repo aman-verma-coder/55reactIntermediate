@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {useState} from 'react';
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+function App () {
+  // const [firstName, setFirstName] = useState (' ');
+  // const [lastName, setLastName] = useState (' ');
+  // console.log (firstName);
+  // console.log (lastName);
+  // function firstNameChange (event) {
+  //   // console.log ('Printing first name');
+  //   // console.log (event.target.value);
+  //   setFirstName (event.target.value);
+  // }
+  // function lastNameChange (event) {
+  //   // console.log ('Printing last name');
+  //   // console.log (event.target.value);
+  //   setLastName (event.target.value);
+  // }
+  const [formData, setFormData] = useState ({
+    firstName: '',
+    lastName: '',
+    email: '',
+  });
+  console.log (formData);
+  function changeData (event) {
+    setFormData (prevFormData => {
+      return {
+        ...prevFormData,
+        [event.target.name]: event.target.value,
+      };
+    });
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <form action="">
+        <input
+          type="text"
+          placeholder="First Name"
+          onChange={changeData}
+          name="firstName"
+        />
+        <br />
+        <br />
+        <input
+          type="text"
+          placeholder="Last Name"
+          onChange={changeData}
+          name="lastName"
+        />
+        <br />
+        <br />
+        <input
+          type="email"
+          placeholder="Enter Email"
+          onChange={changeData}
+          name="email"
+        />
+      </form>
+    </div>
+  );
 }
 
-export default App
+export default App;
