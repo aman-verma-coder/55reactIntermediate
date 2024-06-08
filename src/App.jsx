@@ -22,13 +22,16 @@ function App () {
     firstName: '',
     lastName: '',
     email: '',
+    comments: '',
+    isVisible: false,
   });
   console.log (formData);
   function changeData (event) {
     setFormData (prevFormData => {
+      const {name, value, checked, type} = event.target;
       return {
         ...prevFormData,
-        [event.target.name]: event.target.value,
+        [name]: type === 'checkbox' ? checked : value,
       };
     });
   }
@@ -43,8 +46,7 @@ function App () {
           name="firstName"
           value={formData.firstName}
         />
-        <br />
-        <br />
+        <br /><br />
         <input
           type="text"
           placeholder="Last Name"
@@ -52,8 +54,7 @@ function App () {
           name="lastName"
           value={formData.lastName}
         />
-        <br />
-        <br />
+        <br /><br />
         <input
           type="email"
           placeholder="Enter Email"
@@ -61,6 +62,22 @@ function App () {
           name="email"
           value={formData.email}
         />
+        <br /><br />
+        <textarea
+          placeholder="Enter your comments here"
+          onChange={changeData}
+          name="comments"
+          value={formData.comments}
+        />
+        <br /><br />
+        <input
+          type="checkbox"
+          name="isVisible"
+          onChange={changeData}
+          checked={formData.isVisible} //Instead of value we use checked for checkbox
+          id="isVisible"
+        />
+        <label htmlFor="isVisible">Am I Visible Mitro?</label>
       </form>
     </div>
   );
