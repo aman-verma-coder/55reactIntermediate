@@ -25,6 +25,7 @@ function App () {
     comments: '',
     isVisible: false,
     mode: '',
+    favCar: '',
   });
   console.log (formData);
   function changeData (event) {
@@ -98,6 +99,20 @@ function App () {
           checked={formData.mode === 'Offline Mode'} //For Radio button we use checked instead of value
         />
         <label htmlFor="Offline-Mode">Offline Mode</label>
+        <br /><br />
+        <label htmlFor="favCar">Your Favorite Car</label>
+        <select
+          name="favCar"
+          id="favCar"
+          onChange={changeData}
+          value={formData.favCar}
+        >
+          <option value="Scorpio">Scorpio</option>
+          <option value="Thar">Thar</option>
+          <option value="Fortuner">Fortuner</option>
+          <option value="Nexon">Nexon</option>
+          <option value="Defender">Defender</option>
+        </select>
       </form>
     </div>
   );
