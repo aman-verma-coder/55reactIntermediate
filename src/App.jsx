@@ -24,6 +24,7 @@ function App () {
     email: '',
     comments: '',
     isVisible: false,
+    mode: '',
   });
   console.log (formData);
   function changeData (event) {
@@ -78,6 +79,25 @@ function App () {
           id="isVisible"
         />
         <label htmlFor="isVisible">Am I Visible Mitro?</label>
+        <br /><br />
+        <input
+          type="radio"
+          name="mode"
+          onChange={changeData}
+          value={'Online Mode'}
+          id="Online-Mode"
+          checked={formData.mode === 'Online Mode'} //For Radio button we use checked instead of value
+        />
+        <label htmlFor="Online-Mode">Online Mode</label>
+        <input
+          type="radio"
+          name="mode"
+          onChange={changeData}
+          value={'Offline Mode'}
+          id="Offline-Mode"
+          checked={formData.mode === 'Offline Mode'} //For Radio button we use checked instead of value
+        />
+        <label htmlFor="Offline-Mode">Offline Mode</label>
       </form>
     </div>
   );
