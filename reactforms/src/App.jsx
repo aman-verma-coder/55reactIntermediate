@@ -41,6 +41,7 @@ function App () {
           placeholder="First Name"
           onChange={changeData}
           name="firstName"
+          value={formData.firstName}
         />
         <br />
         <br />
@@ -49,6 +50,7 @@ function App () {
           placeholder="Last Name"
           onChange={changeData}
           name="lastName"
+          value={formData.lastName}
         />
         <br />
         <br />
@@ -57,6 +59,7 @@ function App () {
           placeholder="Enter Email"
           onChange={changeData}
           name="email"
+          value={formData.email}
         />
       </form>
     </div>
