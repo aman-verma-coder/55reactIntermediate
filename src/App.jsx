@@ -1,6 +1,4 @@
 import {useState} from 'react';
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css';
 
 function App () {
@@ -27,7 +25,7 @@ function App () {
     mode: '',
     favCar: '',
   });
-  console.log (formData);
+  // console.log (formData);
   function changeData (event) {
     setFormData (prevFormData => {
       const {name, value, checked, type} = event.target;
@@ -36,6 +34,10 @@ function App () {
         [name]: type === 'checkbox' ? checked : value,
       };
     });
+  }
+  function submitBtn (event) {
+    event.preventDefault ();
+    console.log (formData);
   }
 
   return (
@@ -113,6 +115,8 @@ function App () {
           <option value="Nexon">Nexon</option>
           <option value="Defender">Defender</option>
         </select>
+        <br /><br />
+        <button onClick={submitBtn}>Submit</button>
       </form>
     </div>
   );
